@@ -15,5 +15,5 @@ extension ModuleName {
 private let moduleConfig = Module.Config(
     product: .custom(.app),
     hasResources: false,
-    hasTests: false
+    testConfig: nil
 )

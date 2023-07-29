@@ -32,8 +32,8 @@ public struct Module: Hashable {
         /// Determines if there should be a resource bundle created for it. Only applies to static framework product
         /// types. Defaults to `true`. This should almost never be changed.
         var hasResources: Bool = true
-        /// Determines if the module should produce a test target. Defaults to `true`. This should almost never be changed.
-        var hasTests: Bool = true
+        /// The testing configuration for the module
+        var testConfig: TestConfig? = TestConfig()
     }
 
     /// Configuration options for a module's test target
@@ -56,13 +56,10 @@ public struct Module: Hashable {
     let name: ModuleName
     /// Configuration options used when generating the module's main target
     let config: Config
-    /// Configuration options for a module's test target
-    let testConfig: TestConfig
 
-    init(name: ModuleName, config: Config = Config(), testConfig: TestConfig = TestConfig()) {
+    init(name: ModuleName, config: Config = Config()) {
         self.name = name
         self.config = config
-        self.testConfig = testConfig
     }
 
     var targetReference: TargetReference {
@@ -137,7 +134,7 @@ public struct Module: Hashable {
             targets.append(Target.resourceTarget(for: self))
         }
 
-        if config.hasTests {
+        if config.testConfig != nil {
             targets.append(Target.testTarget(for: self))
         }
 
@@ -252,14 +249,11 @@ private extension Target {
     }
 
     static func testTarget(for module: Module) -> Target? {
-        guard module.isPackageWrapper == false else {
+        guard module.isPackageWrapper == false, let config = module.config.testConfig else {
             return nil
         }
 
         let moduleName = module.name
-        let config = module.testConfig
-
-        guard module.config.hasTests else { return nil }
 
         var dependencies: [TargetDependency] = config.dependencies + [
             .moduleName(moduleName),

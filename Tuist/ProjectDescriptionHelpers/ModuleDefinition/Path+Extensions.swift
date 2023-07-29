@@ -32,12 +32,18 @@ extension Path {
 
 extension Path {
     /// Defines each kind of sub-directory that a module can have
-    public enum SubdirectoryType: String {
-        case sources = "Sources"
-        case tests = "Tests"
-        case resources = "Resources"
-        case config = "xcconfig"
-        case supporting = "Supporting"
+    public struct SubdirectoryType: RawRepresentable {
+        public var rawValue: String
+
+        public init(rawValue: String) {
+            self.rawValue = rawValue
+        }
+
+        public static var sources = SubdirectoryType(rawValue: "Sources")
+        public static var tests = SubdirectoryType(rawValue: "Tests")
+        public static var resources = SubdirectoryType(rawValue: "Resources")
+        public static var config = SubdirectoryType(rawValue: "xcconfig")
+        public static var supporting = SubdirectoryType(rawValue: "Supporting")
     }
 
     /// Creates a path to the given module's root

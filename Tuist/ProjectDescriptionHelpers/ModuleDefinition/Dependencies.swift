@@ -8,4 +8,3 @@ public enum Dependency: Equatable {
     /// Defines a dependency on a module
     case module(Module)
 }
-
