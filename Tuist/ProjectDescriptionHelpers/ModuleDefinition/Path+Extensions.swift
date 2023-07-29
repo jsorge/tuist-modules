@@ -31,7 +31,7 @@ extension Path {
 }
 
 extension Path {
-    /// Defines each kind of sub-directory that a module can have
+    /// Defines a sub-directory that a module can have
     public struct SubdirectoryType: RawRepresentable {
         public var rawValue: String
 

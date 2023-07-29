@@ -328,9 +328,7 @@ private extension Target {
             bundleId: .bundleID(from: moduleName.resources),
             infoPlist: .resourceBundleTarget,
             resources: ResourceFileElements(resources: allResources),
-            scripts: [
-                .removeBundleExecutable,
-            ],
+            scripts: [],
             settings: Settings.resourceSettings()
         )
     }

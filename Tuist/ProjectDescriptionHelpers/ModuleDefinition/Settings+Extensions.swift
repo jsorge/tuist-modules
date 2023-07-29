@@ -11,7 +11,6 @@ extension Settings {
             configurations: [
                 .debug(name: "Debug"),
                 .release(name: "Release"),
-                .release(name: "Distribution"),
             ],
             defaultSettings: .none
         )
@@ -26,7 +25,6 @@ extension Settings {
             configurations: [
                 .debug(name: "Debug"),
                 .release(name: "Release"),
-                .release(name: "Distribution"),
             ],
             defaultSettings: .none
         )
@@ -43,7 +41,6 @@ extension Settings {
         return .settings(
             configurations: [
                 .debug(name: "Debug", xcconfig: Path.relativeToRoot("xcconfig/Project-Debug.xcconfig")),
-                .release(name: "Distribution", xcconfig: .relativeToRoot("xcconfig/Project-Distribution.xcconfig")),
                 .release(name: "Release", xcconfig: Path.relativeToRoot("xcconfig/Project-Release.xcconfig")),
             ],
             defaultSettings: .none
