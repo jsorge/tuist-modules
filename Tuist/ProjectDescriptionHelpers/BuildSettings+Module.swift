@@ -17,7 +17,8 @@ extension SettingsDictionary {
             "PRODUCT_NAME": "$(TARGET_NAME)",
             "SKIP_INSTALL": "YES",
             "CLANG_MODULES_AUTOLINK": false,
-            "INFOPLIST_FILE": "$(SRCROOT)/Derived/InfoPlists/$(TARGET_NAME).plist"
+            "INFOPLIST_FILE": "$(SRCROOT)/Derived/InfoPlists/$(TARGET_NAME).plist",
+            "SWIFT_VERSION": "5.0",
         ]
     }
 

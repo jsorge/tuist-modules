@@ -1,6 +1,6 @@
 import UIKit
-import TuistModulesKit
-import TuistModulesUI
+import Models
+import UI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

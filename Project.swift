@@ -21,7 +21,11 @@ import MyPlugin
 // MARK: - Project
 
 let project = Project(
-    modules: [.sampleApp],
+    modules: [
+        .sampleApp,
+        .models,
+        .ui
+    ],
     additionalTargets: [],
     packages: [],
     schemes: [],

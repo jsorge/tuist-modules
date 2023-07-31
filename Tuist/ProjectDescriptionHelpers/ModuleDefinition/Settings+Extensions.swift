@@ -35,15 +35,4 @@ extension Settings {
     public static func resourceSettings() -> Settings {
         return .settings(base: .resourceBase, defaultSettings: .none)
     }
-
-    /// The build settings that we use for our project file.
-    static var projectSettings: Settings {
-        return .settings(
-            configurations: [
-                .debug(name: "Debug", xcconfig: Path.relativeToRoot("xcconfig/Project-Debug.xcconfig")),
-                .release(name: "Release", xcconfig: Path.relativeToRoot("xcconfig/Project-Release.xcconfig")),
-            ],
-            defaultSettings: .none
-        )
-    }
 }

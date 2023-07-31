@@ -20,6 +20,6 @@ private let appConfig = Module.Config(
     ],
     additionalFiles: [],
     product: .custom(.app),
-    hasResources: true,
+    hasResources: false,
     testConfig: Module.TestConfig(hasResources: false)
 )

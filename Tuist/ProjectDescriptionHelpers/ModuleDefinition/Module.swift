@@ -30,8 +30,8 @@ public struct Module: Hashable {
         /// changed.
         var product: Product = .static
         /// Determines if there should be a resource bundle created for it. Only applies to static framework product
-        /// types. Defaults to `true`. This should almost never be changed.
-        var hasResources: Bool = true
+        /// types. Defaults to `false`.
+        var hasResources: Bool = false
         /// The testing configuration for the module
         var testConfig: TestConfig? = TestConfig()
     }
