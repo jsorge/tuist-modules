@@ -21,7 +21,7 @@ import ModulePlugin
 // MARK: - Project
 
 let project = Project(
-    bundleID: "com.example.modules",
+    bundleID: bundleBaseID,
     modules: [
         .sampleApp,
         .models,
