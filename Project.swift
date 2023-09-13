@@ -25,9 +25,5 @@ let project = Project(
         .sampleApp,
         .models,
         .ui
-    ],
-    additionalTargets: [],
-    packages: [],
-    schemes: [],
-    additionalFiles: []
+    ]
 )

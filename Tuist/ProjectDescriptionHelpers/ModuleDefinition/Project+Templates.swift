@@ -9,8 +9,8 @@ extension Project {
     ///   - schemes: Custom schemes
     ///   - additionalFiles: Extra files to be added to the project
     /// - Returns: The finished Xcode project
-    public init(modules: Set<Module>, additionalTargets: [Target], packages: [Package],
-                schemes: [Scheme], additionalFiles: [FileElement], settings: Settings = .moduleSettings())
+    public init(modules: Set<Module>, additionalTargets: [Target] = [], packages: [Package] = [],
+                schemes: [Scheme] = [], additionalFiles: [FileElement] = [], settings: Settings = .moduleSettings())
     {
         var targets = modules.flatMap { $0.makeTargets() }
         targets.append(contentsOf: additionalTargets)

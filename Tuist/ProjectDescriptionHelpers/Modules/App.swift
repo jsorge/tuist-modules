@@ -12,14 +12,10 @@ extension ModuleName {
 }
 
 private let appConfig = Module.Config(
-    headers: nil,
-    actions: [],
     dependencies: [
         .module(.models),
         .module(.ui),
     ],
-    additionalFiles: [],
     product: .custom(.app),
-    hasResources: false,
     testConfig: Module.TestConfig(hasResources: false)
 )

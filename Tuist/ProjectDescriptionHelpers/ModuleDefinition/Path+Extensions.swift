@@ -5,28 +5,28 @@ extension Path {
     /// - Parameter pathStr: The path to append
     /// - Returns: The path inside of the dependencies directory
     public static func relativeToDeps(_ path: String) -> Path {
-        return Path.relativeToRoot("Dependencies").appending(path)
+        Path.relativeToRoot("Dependencies").appending(path)
     }
 
     /// Creates a path to the Carthage built products directory and appends the given additional path
     /// - Parameter pathStr: The path to append
     /// - Returns: The path inside of the Carthage products directory
     static func relativeToCarthageDir(_ path: String) -> Path {
-        return Path.relativeToRoot("Tuist/Dependencies/Carthage/Build").appending(path)
+        Path.relativeToRoot("Tuist/Dependencies/Carthage/Build").appending(path)
     }
 
     /// Creates a path to the binaries directory (inside of dependencies) and appends the given additional path
     /// - Parameter pathStr: The path to append
     /// - Returns: The path inside of the dependencies directory
     public static func relativeToBinaries(_ path: String) -> Path {
-        return Path.relativeToDeps("Binaries").appending(path)
+        Path.relativeToDeps("Binaries").appending(path)
     }
 
     /// Creates a path to the tools directory and appends the given additional path
     /// - Parameter pathStr: The path to append
     /// - Returns: The path inside of the tools directory
     public static func relativeToTools(_ path: String) -> Path {
-        return Path.relativeToRoot("Tools").appending(path)
+        Path.relativeToRoot("Tools").appending(path)
     }
 }
 
@@ -50,7 +50,7 @@ extension Path {
     /// - Parameter moduleName: The module who's path is needed
     /// - Returns: The path to the root of a module
     public static func modulePath(for moduleName: ModuleName) -> Path {
-        return .relativeToRoot("Modules/\(moduleName.name)")
+        .relativeToRoot("Modules/\(moduleName.name)")
     }
 
     /// Creates a path to the given subdirectory type for a module.
@@ -59,14 +59,14 @@ extension Path {
     ///   - type: The type of subdirectory to append to the module path
     /// - Returns: The full path to the module/subdirectory (i.e. MyFramework/Sources)
     public static func moduleSubdirectory(for moduleName: ModuleName, type: SubdirectoryType) -> Path {
-        return Path.modulePath(for: moduleName).appending(type.rawValue)
+        Path.modulePath(for: moduleName).appending(type.rawValue)
     }
 
     /// The path to a module's info.plist file
     /// - Parameter moduleName: The module who's info.plist is needed
     /// - Returns: The full path to the module's info.plist file
     public static func infoPlistPath(for moduleName: ModuleName) -> Path {
-        return Path.moduleSubdirectory(for: moduleName, type: .supporting).appending("Info.plist")
+        Path.moduleSubdirectory(for: moduleName, type: .supporting).appending("Info.plist")
     }
 
     /// The path to a module's sources directory (a shortcut from calling
@@ -74,7 +74,7 @@ extension Path {
     /// - Parameter moduleName: The module who's sources are needed
     /// - Returns: The full path to the module's sources directory
     public static func sourcesPath(for moduleName: ModuleName) -> Path {
-        return Path.moduleSubdirectory(for: moduleName, type: .sources)
+        Path.moduleSubdirectory(for: moduleName, type: .sources)
     }
 
     /// The path to a module's resources directory (a shortcut from calling
@@ -82,19 +82,19 @@ extension Path {
     /// - Parameter moduleName: The module who's resources are needed
     /// - Returns: The full path to the module's resources directory
     public static func resourcesPath(for moduleName: ModuleName) -> Path {
-        return Path.moduleSubdirectory(for: moduleName, type: .resources)
+        Path.moduleSubdirectory(for: moduleName, type: .resources)
     }
 
     /// The path to a module's tests directory (a shortcut from calling `moduleSubdirectory(for: module, type: .tests)`)
     /// - Parameter moduleName: The module who's tests are needed
     /// - Returns: The full path to the module's tests directory
     public static func testsPath(for moduleName: ModuleName) -> Path {
-        return Path.moduleSubdirectory(for: moduleName, type: .tests)
+        Path.moduleSubdirectory(for: moduleName, type: .tests)
     }
 
     /// Creates a globbing pattern from the path instance
     public var globbing: Path {
-        return self.appending("**")
+        self.appending("**")
     }
 }
 

@@ -33,7 +33,7 @@ public struct Module: Hashable {
         /// types. Defaults to `false`.
         var hasResources: Bool = false
         /// The testing configuration for the module
-        var testConfig: TestConfig? = TestConfig()
+        var testConfig: TestConfig? = nil
     }
 
     /// Configuration options for a module's test target
@@ -43,7 +43,7 @@ public struct Module: Hashable {
         /// Additional sources that the module's test target may need (such as the shared mocks)
         var additionalSources: [SourceFileGlob] = []
         /// Determines if the test target should have resource bundle created for it.
-        var hasResources: Bool = true
+        var hasResources: Bool = false
         /// Determines if the test target should use an empty host app to run its test.
         var usesTestHost: Bool = false
         /// Additional build settings to apply to the test target.
