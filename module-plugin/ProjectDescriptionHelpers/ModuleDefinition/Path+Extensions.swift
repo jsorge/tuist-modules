@@ -112,8 +112,6 @@ extension Path {
             return .relativeToManifest(newPath)
         case .relativeToRoot:
             return .relativeToRoot(newPath)
-        @unknown default:
-            fatalError("fix yo switch")
         }
     }
 }

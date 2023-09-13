@@ -13,7 +13,7 @@ extension SettingsDictionary {
                 "@loader_path/Frameworks"
             ],
             "LIBRARY_SEARCH_PATHS": "$(inherited)",
-            "PRODUCT_BUNDLE_IDENTIFIER": "\(bundleBaseID).$(TARGET_NAME)",
+            "PRODUCT_BUNDLE_IDENTIFIER": "\(PluginConfiguration.bundleBaseID).$(TARGET_NAME)",
             "PRODUCT_NAME": "$(TARGET_NAME)",
             "SKIP_INSTALL": "YES",
             "CLANG_MODULES_AUTOLINK": false,
@@ -59,7 +59,7 @@ extension SettingsDictionary {
 
     static var resourceBase: SettingsDictionary {
         return [
-            "PRODUCT_BUNDLE_IDENTIFIER": "\(bundleBaseID).$(TARGET_NAME)",
+            "PRODUCT_BUNDLE_IDENTIFIER": "\(PluginConfiguration.bundleBaseID).$(TARGET_NAME)",
             "PRODUCT_NAME": "$(TARGET_NAME)",
         ]
     }
