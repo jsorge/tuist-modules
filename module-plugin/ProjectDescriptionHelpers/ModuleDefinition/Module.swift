@@ -4,8 +4,8 @@ import ProjectDescription
 /// A type that represents a product module
 public struct Module: Hashable {
     /// Configuration options used when generating the target for the module
-    struct Config {
-        enum Product {
+    public struct Config {
+        public enum Product {
             /// Produces a dynamic framework product
             case `dynamic`
             /// Produces a static framework product
@@ -34,10 +34,24 @@ public struct Module: Hashable {
         var hasResources: Bool = false
         /// The testing configuration for the module
         var testConfig: TestConfig? = nil
+
+        public init(headers: Headers? = nil, actions: [TargetScript] = [], dependencies: [Dependency] = [],
+                    additionalFiles: [ResourceFileElement] = [], product: Module.Config.Product = .static,
+                    hasResources: Bool = false, testConfig: Module.TestConfig? = nil
+        ) {
+            self.headers = headers
+            self.actions = actions
+            self.dependencies = dependencies
+            self.additionalFiles = additionalFiles
+            self.product = product
+            self.hasResources = hasResources
+            self.testConfig = testConfig
+        }
+
     }
 
     /// Configuration options for a module's test target
-    struct TestConfig {
+    public struct TestConfig {
         /// Additional dependencies beyond the primary module itself and the testing resources module
         var dependencies: [TargetDependency] = []
         /// Additional sources that the module's test target may need (such as the shared mocks)
@@ -50,6 +64,21 @@ public struct Module: Hashable {
         var additionalBuildSettings: SettingsDictionary = [:]
         /// Additional properties to apply to the generated Info.plist file
         var additionalInfoPlistProperties: [String : ProjectDescription.InfoPlist.Value] = [:]
+
+        public init(dependencies: [TargetDependency] = [], additionalSources: [SourceFileGlob] = [],
+                    hasResources: Bool = false, usesTestHost: Bool = false,
+                    additionalBuildSettings: SettingsDictionary = [:],
+                    additionalInfoPlistProperties: [String : InfoPlist.Value] = [:]
+        ) {
+            self.dependencies = dependencies
+            self.additionalSources = additionalSources
+            self.hasResources = hasResources
+            self.usesTestHost = usesTestHost
+            self.additionalBuildSettings = additionalBuildSettings
+            self.additionalInfoPlistProperties = additionalInfoPlistProperties
+        }
+
+
     }
 
     /// The name of the module
@@ -57,7 +86,7 @@ public struct Module: Hashable {
     /// Configuration options used when generating the module's main target
     let config: Config
 
-    init(name: ModuleName, config: Config = Config()) {
+    public init(name: ModuleName, config: Config = Config()) {
         self.name = name
         self.config = config
     }

@@ -1,6 +1,6 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
-import MyPlugin
+import ModulePlugin
 
 /*
                 +-------------+
@@ -21,6 +21,7 @@ import MyPlugin
 // MARK: - Project
 
 let project = Project(
+    bundleID: "com.example.modules",
     modules: [
         .sampleApp,
         .models,

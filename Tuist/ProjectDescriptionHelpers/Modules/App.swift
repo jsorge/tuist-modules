@@ -1,5 +1,6 @@
 import Foundation
 import ProjectDescription
+import ModulePlugin
 
 extension Module {
     public static var sampleApp: Module {

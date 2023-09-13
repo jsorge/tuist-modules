@@ -112,6 +112,8 @@ extension Path {
             return .relativeToManifest(newPath)
         case .relativeToRoot:
             return .relativeToRoot(newPath)
+        @unknown default:
+            fatalError("Unknown case hit: \(self.type)")
         }
     }
 }

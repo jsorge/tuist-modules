@@ -1,3 +1,5 @@
+import ModulePlugin
+
 extension Module {
     public static var models: Module {
         Module(name: .models)
