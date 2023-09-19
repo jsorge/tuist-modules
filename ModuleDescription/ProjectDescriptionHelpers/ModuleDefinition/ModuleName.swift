@@ -39,6 +39,6 @@ extension String {
     /// - Parameter module: The module who's bundle needs identifying
     /// - Returns: The bundle identifier for a module
     public static func bundleID(from module: ModuleName) -> String {
-        return "\(bundleBaseID).\(module.name)"
+        return "\(PluginConfiguration.bundleID).\(module.name)"
     }
 }
