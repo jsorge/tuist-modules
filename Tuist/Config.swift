@@ -2,6 +2,6 @@ import ProjectDescription
 
 let config = Config(
     plugins: [
-        .local(path: .relativeToManifest("../../Plugins/TuistModules")),
+        .git(url: "https://github.com/runway-org/tuist-module-plugin.git", sha: "b552bc9"),
     ]
 )

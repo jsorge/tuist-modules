@@ -1,3 +1,5 @@
+import ModuleDescription
+
 extension Module {
     public static var ui: Module {
         Module(name: .ui, config: moduleConfig)
